@@ -11,14 +11,14 @@ def read_readme():
     if os.path.exists(readme_path):
         with open(readme_path, 'r', encoding='utf-8') as f:
             return f.read()
-    return "SmartTQDM - Intelligent Progress Bar with Emoji Feedback and Fluid Visualization"
+    return "SmartTQDM - Intelligent Progress Bar with Emoji Feedback"
 
 setup(
     name="smart-tqdm",
-    version="1.0.0",
+    version="2.0.0",
     author="IEEE Research Project",
     author_email="research@ieee.org",
-    description="Intelligent progress bar with emoji feedback, fluid visualization, and smart metrics awareness",
+    description="Intelligent stateful progress bar with emoji feedback for neural network training",
     long_description=read_readme(),
     long_description_content_type="text/markdown",
     url="https://github.com/ieee-research/smart-tqdm",
@@ -41,10 +41,7 @@ setup(
     ],
     python_requires=">=3.7",
     install_requires=[
-        "tqdm>=4.64.0",
-        "numpy>=1.21.0",
-        "matplotlib>=3.5.0",
-        "pillow>=8.0.0",
+        # No external dependencies - uses only Python standard library
     ],
     extras_require={
         "dev": [
@@ -54,27 +51,21 @@ setup(
             "flake8>=4.0.0",
             "mypy>=0.950",
         ],
-        "jupyter": [
-            "ipywidgets>=7.0.0",
-            "jupyter>=1.0.0",
-        ],
-        "full": [
-            "plotly>=5.0.0",
-            "pandas>=1.3.0",
-            "seaborn>=0.11.0",
-        ]
     },
     keywords=[
         "progress-bar",
-        "tqdm",
         "emoji",
-        "visualization",
+        "neural-network",
         "machine-learning",
         "deep-learning",
         "training",
         "monitoring",
         "metrics",
-        "animation",
+        "accuracy",
+        "loss",
+        "trend-detection",
+        "intelligent-feedback",
+        "stateful",
         "ieee",
         "research"
     ],

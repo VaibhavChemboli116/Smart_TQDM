@@ -1,41 +1,57 @@
 """
-Smart TQDM - Intelligent Progress Bar with Emoji Feedback and Fluid Visualization
+Smart TQDM - Intelligent Stateful Progress Bar with Emoji Feedback
 
-A drop-in replacement for tqdm with smart features:
-- Emoji-based performance feedback
-- Fluid progress bar visualization
+A smart progress bar library with:
+- Intelligent emoji-based performance feedback
+- Stateful metric history tracking
+- Trend detection (improvement/plateau/decline)
+- Configurable emoji selection (accuracy vs loss vs default)
+- Color gradient progress bars
 - Smart metrics awareness
-- Custom themes and animations
-- Jupyter notebook support
-- GIF export capabilities
+- Neural network training focused
 
 Author: IEEE Research Project
-Version: 1.0.0
+Version: 2.0.0
 """
 
-from .smart_tqdm import SmartTQDM, smart_tqdm, smart_progress
-from .themes import Theme, DefaultTheme, CatTheme, RocketTheme, CustomTheme
-from .animations import FluidAnimation, WaveAnimation, RippleAnimation
-from .metrics import MetricsTracker, PerformanceAnalyzer
-from .exporters import GIFExporter, ReportGenerator
+# Import main components from modular structure
+from .smart_bar import SmartBar
+from .emoji_selectors import (
+    accuracy_based_selector, 
+    loss_based_selector, 
+    speed_based_selector,
+    EmojiSelector
+)
+from .metrics import MetricTracker
+from .display import TerminalRenderer
+from .config import (
+    ProgressBarConfig, 
+    EmojiConfig, 
+    ColorConfig, 
+    DefaultConfig
+)
 
-__version__ = "1.0.0"
+__version__ = "2.0.0"
 __author__ = "IEEE Research Project"
 
+# Maintain backward compatibility with existing API
 __all__ = [
-    "SmartTQDM",
-    "smart_tqdm",
-    "smart_progress", 
-    "Theme",
-    "DefaultTheme",
-    "CatTheme", 
-    "RocketTheme",
-    "CustomTheme",
-    "FluidAnimation",
-    "WaveAnimation",
-    "RippleAnimation",
-    "MetricsTracker",
-    "PerformanceAnalyzer",
-    "GIFExporter",
-    "ReportGenerator"
+    # Main progress bar class
+    "SmartBar",
+    
+    # Predefined emoji selectors
+    "accuracy_based_selector",
+    "loss_based_selector", 
+    "speed_based_selector",
+    
+    # Advanced components (for custom usage)
+    "EmojiSelector",
+    "MetricTracker",
+    "TerminalRenderer",
+    
+    # Configuration classes
+    "ProgressBarConfig",
+    "EmojiConfig", 
+    "ColorConfig",
+    "DefaultConfig"
 ] 
