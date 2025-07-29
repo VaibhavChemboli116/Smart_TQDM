@@ -1,0 +1,11 @@
+# SmartBar - Intelligent Stateful Progress Bar
+# No external dependencies required - uses only Python standard library
+
+# Optional: For real training examples
+# torch>=1.9.0
+# scikit-learn>=1.0.0
+
+# Development dependencies (optional)
+# pytest>=6.0.0
+# black>=22.0.0
+# flake8>=4.0.0 
