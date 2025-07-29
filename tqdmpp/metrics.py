@@ -5,6 +5,8 @@ import time
 from collections import deque
 from typing import Dict, Any, Optional
 
+from .config import ProgressBarConfig
+
 try:
     from typing import Deque
 except ImportError:
@@ -18,7 +20,7 @@ except ImportError:
 class MetricTracker:
     """Handles metric history tracking and trend analysis"""
     
-    def __init__(self, history_size: int = 5):
+    def __init__(self, history_size: int = ProgressBarConfig.DEFAULT_HISTORY_SIZE):
         self.history_size = history_size
         self.metric_history: Deque[Dict[str, Any]] = deque(maxlen=history_size)
         self.best_accuracy = 0.0
@@ -57,11 +59,11 @@ class MetricTracker:
         # Get last 3 entries for trend calculation
         recent = list(self.metric_history)[-3:]
         
-        # Calculate accuracy trend with more sensitive thresholds
+        # Calculate accuracy trend with configured thresholds
         if all('acc' in entry for entry in recent):
             acc_values = [float(entry['acc']) for entry in recent]
-            # More sensitive threshold for accuracy changes
-            threshold = 0.005  # Reduced from 0.01
+            # Use configured threshold for accuracy changes
+            threshold = ProgressBarConfig.ACCURACY_THRESHOLD
             if acc_values[-1] > acc_values[0] + threshold:  # Significant improvement
                 self.accuracy_trend = 1
             elif acc_values[-1] < acc_values[0] - threshold:  # Significant decrease
@@ -69,11 +71,11 @@ class MetricTracker:
             else:
                 self.accuracy_trend = 0  # Stable
         
-        # Calculate loss trend with more sensitive thresholds
+        # Calculate loss trend with configured thresholds
         if all('loss' in entry for entry in recent):
             loss_values = [float(entry['loss']) for entry in recent]
-            # More sensitive threshold for loss changes
-            threshold = 0.005  # Reduced from 0.01
+            # Use configured threshold for loss changes
+            threshold = ProgressBarConfig.LOSS_THRESHOLD
             if loss_values[-1] < loss_values[0] - threshold:  # Significant improvement
                 self.loss_trend = 1
             elif loss_values[-1] > loss_values[0] + threshold:  # Significant increase

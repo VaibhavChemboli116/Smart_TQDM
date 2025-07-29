@@ -1,3 +1,7 @@
+"""
+Real training simulation script for testing SmartBar with actual ML workflow
+"""
+
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -7,7 +11,10 @@ import numpy as np
 from sklearn.datasets import load_iris, load_wine, load_breast_cancer
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from smart_tqdm import SmartBar, accuracy_based_selector, loss_based_selector
+import random
+import math
+
+from tqdmpp import SmartBar, accuracy_based_selector, loss_based_selector
 
 # Set device
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

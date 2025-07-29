@@ -1,5 +1,5 @@
 """
-Setup script for SmartTQDM package
+Setup script for tqdm++ package
 """
 
 from setuptools import setup, find_packages
@@ -11,17 +11,17 @@ def read_readme():
     if os.path.exists(readme_path):
         with open(readme_path, 'r', encoding='utf-8') as f:
             return f.read()
-    return "SmartTQDM - Intelligent Progress Bar with Emoji Feedback"
+    return "tqdm++ - Enhanced Progress Bar with Intelligent Emoji Feedback"
 
 setup(
-    name="smart-tqdm",
+    name="tqdmpp",
     version="2.0.0",
     author="IEEE Research Project",
     author_email="research@ieee.org",
-    description="Intelligent stateful progress bar with emoji feedback for neural network training",
+    description="Enhanced progress bar with intelligent emoji feedback for neural network training",
     long_description=read_readme(),
     long_description_content_type="text/markdown",
-    url="https://github.com/ieee-research/smart-tqdm",
+    url="https://github.com/ieee-research/tqdmpp",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 4 - Beta",
@@ -70,9 +70,9 @@ setup(
         "research"
     ],
     project_urls={
-        "Bug Reports": "https://github.com/ieee-research/smart-tqdm/issues",
-        "Source": "https://github.com/ieee-research/smart-tqdm",
-        "Documentation": "https://github.com/ieee-research/smart-tqdm/blob/main/README.md",
+        "Bug Reports": "https://github.com/ieee-research/tqdmpp/issues",
+        "Source": "https://github.com/ieee-research/tqdmpp",
+        "Documentation": "https://github.com/ieee-research/tqdmpp/blob/main/README.md",
     },
     include_package_data=True,
     zip_safe=False,

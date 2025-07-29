@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tqdmpp"
+version = "2.0.0"
+description = "Enhanced progress bar with intelligent emoji feedback for neural network training"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "IEEE Research Project", email = "research@ieee.org"}
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Monitoring",
+]
+keywords = [
+    "progress-bar",
+    "emoji", 
+    "neural-network",
+    "machine-learning",
+    "deep-learning",
+    "training",
+    "monitoring",
+    "metrics",
+    "trend-detection",
+    "intelligent-feedback"
+]
+requires-python = ">=3.7"
+dependencies = [
+    # No external dependencies - uses only Python standard library
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0.0",
+    "pytest-cov>=2.0.0", 
+    "black>=22.0.0",
+    "flake8>=4.0.0",
+    "mypy>=0.950",
+]
+
+[project.urls]
+Homepage = "https://github.com/ieee-research/tqdmpp"
+"Bug Reports" = "https://github.com/ieee-research/tqdmpp/issues"
+"Source" = "https://github.com/ieee-research/tqdmpp"
+"Documentation" = "https://github.com/ieee-research/tqdmpp/blob/main/README.md"
+
+[tool.setuptools]
+packages = ["tqdmpp"]

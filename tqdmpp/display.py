@@ -6,14 +6,11 @@ import shutil
 import time
 from typing import Dict, Any, Optional
 
+from .config import ProgressBarConfig, ColorConfig
+
 
 class TerminalRenderer:
     """Handles terminal rendering and display formatting"""
-    
-    # Display constants
-    SLIM_CHAR = '━'  # Changed from '─' to '━' for thicker bar
-    MIN_BAR_WIDTH = 10
-    MIN_TERM_WIDTH = 40
     
     def __init__(self):
         self.last_print_len = 0
@@ -39,16 +36,16 @@ class TerminalRenderer:
             if pos <= 0.5:
                 # Red to yellow
                 ratio = pos * 2
-                r = 255
-                g = int(255 * ratio)
-                b = 0
+                r = ColorConfig.RED[0]
+                g = int(ColorConfig.YELLOW[1] * ratio)
+                b = ColorConfig.RED[2]
             else:
                 # Yellow to green
                 ratio = (pos - 0.5) * 2
-                r = int(255 * (1 - ratio))
-                g = 255
-                b = 0
-            colored_filled += f"\033[38;2;{r};{g};{b}m{self.SLIM_CHAR}\033[0m"
+                r = int(ColorConfig.YELLOW[0] * (1 - ratio))
+                g = ColorConfig.GREEN[1]
+                b = ColorConfig.GREEN[2]
+            colored_filled += f"\033[38;2;{r};{g};{b}m{ProgressBarConfig.SLIM_CHAR}\033[0m"
         
         return colored_filled
     
@@ -80,11 +77,11 @@ class TerminalRenderer:
         
         # Calculate available bar width
         available_width = term_width - total_needed
-        if available_width < self.MIN_BAR_WIDTH:
+        if available_width < ProgressBarConfig.MIN_BAR_WIDTH:
             if not self.warned_narrow:
                 print(f"\n⚠️  Terminal too narrow ({term_width} chars). Bar will be minimal.")
                 self.warned_narrow = True
-            available_width = self.MIN_BAR_WIDTH
+            available_width = ProgressBarConfig.MIN_BAR_WIDTH
         
         # Truncate description if needed
         desc_display = desc

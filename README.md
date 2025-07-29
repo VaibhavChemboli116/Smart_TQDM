@@ -1,81 +1,46 @@
-# SmartBar 🚀
+# tqdm++ 🚀
 
-**Intelligent Stateful Progress Bar with Emoji Feedback for Neural Network Training**
+**Enhanced Progress Bar with Intelligent Emoji Feedback**
 
-A smart progress bar library that provides intelligent, stateful feedback during neural network training with dynamic emoji selection based on real-time performance trends.
+An intelligent, stateful progress bar library specifically designed for neural network training and machine learning workflows. Unlike traditional progress bars, tqdm++ provides contextual emoji feedback based on your model's performance trends.
 
-## 🌟 Features
+## ✨ Key Features
 
-### 🧠 Intelligent Stateful Design
-- **Metric History Tracking**: Automatically tracks last 5 epochs of training metrics
-- **Trend Detection**: Detects improvement, plateau, and decline patterns
-- **Best Performance Recognition**: Automatically identifies new best accuracy/loss
-- **Memory Efficient**: Only keeps recent history for trend analysis
-
-### 🎯 Smart Emoji Selection
-- **Accuracy-based Selector**: Emojis based on accuracy trends and improvements
-- **Loss-based Selector**: Emojis based on loss reduction patterns
-- **Default Intelligent**: Automatic trend detection without custom selectors
-- **Dynamic Updates**: Emojis change in real-time as training progresses
-
-### 🎨 Visual Features
-- **Color Gradient**: Red → Yellow → Green progress indication
-- **Emoji Slider**: Emoji moves along progress bar as slider head
-- **Single-line Output**: Clean terminal display like tqdm
-- **Dynamic Width**: Automatically adjusts to terminal size
-
-### 📊 Real-time Metrics
-- **Loss & Accuracy**: Real-time tracking and display
-- **Time Elapsed**: Training duration display
-- **Progress Percentage**: Clear progress indication
-- **Trend Analysis**: Visual feedback on training patterns
+- **🧠 Intelligent Emoji Feedback**: Emojis change based on actual performance (accuracy/loss trends)
+- **📊 Stateful Metric Tracking**: Remembers performance history across iterations
+- **📈 Trend Detection**: Automatically detects improvement, plateau, or decline patterns  
+- **🎨 Beautiful Color Gradients**: Smooth red→yellow→green progress visualization
+- **⚡ Zero Dependencies**: Uses only Python standard library
+- **🔧 Highly Configurable**: Multiple emoji selection strategies and customization options
 
 ## 🚀 Quick Start
 
 ### Installation
 
 ```bash
-pip install smart-tqdm
+pip install tqdmpp
 ```
 
 ### Basic Usage
 
 ```python
-from smart_tqdm import SmartBar, accuracy_based_selector, loss_based_selector
-import time
-import random
+from tqdmpp import SmartBar
 
-# Simple usage with default intelligent selection
-bar = SmartBar(100, desc="Training Model", show_emoji=True)
-
+# Simple progress tracking
+bar = SmartBar(1000, desc="Training Neural Network")
 for epoch in bar:
-    # Simulate training
-    loss = random.uniform(0.1, 2.0)
-    accuracy = random.uniform(0.5, 0.95)
+    # Your training code here
+    accuracy = train_one_epoch()  # Your function
+    loss = calculate_loss()       # Your function
     
-    # Update metrics - emojis will automatically change based on trends
-    bar.set_metrics(loss=f"{loss:.3f}", acc=f"{accuracy:.3f}")
-    time.sleep(0.1)
+    # Update metrics - emojis automatically change based on trends!
+    bar.set_metrics(acc=accuracy, loss=loss)
 ```
 
-### Advanced Usage with Custom Selectors
+### Smart Emoji Selection
 
 ```python
-# Accuracy-based emoji selection
-bar = SmartBar(100, desc="Training", emoji_selector=accuracy_based_selector)
-
-for epoch in bar:
-    loss = random.uniform(0.1, 2.0)
-    accuracy = random.uniform(0.5, 0.95)
-    bar.set_metrics(loss=f"{loss:.3f}", acc=f"{accuracy:.3f}")
-
-# Loss-based emoji selection
-bar = SmartBar(100, desc="Training", emoji_selector=loss_based_selector)
-
-for epoch in bar:
-    loss = random.uniform(0.1, 2.0)
-    accuracy = random.uniform(0.5, 0.95)
-    bar.set_metrics(loss=f"{loss:.3f}", acc=f"{accuracy:.3f}")
+from tqdmpp import SmartBar, accuracy_based_selector, loss_based_selector
 ```
 
 ## 🎯 Emoji Meanings
@@ -170,10 +135,14 @@ bar = SmartBar(100, desc="Training", emoji_selector=custom_selector)
 ## 📦 Package Structure
 
 ```
-smart_tqdm/
-├── smart_tqdm/
+tqdmpp/
+├── tqdmpp/
 │   ├── __init__.py
-│   └── smart_bar.py
+│   ├── smart_bar.py
+│   ├── config.py
+│   ├── display.py
+│   ├── emoji_selectors.py
+│   └── metrics.py
 ├── setup.py
 ├── README.md
 ├── requirements.txt

@@ -1,7 +1,7 @@
 """
-Smart TQDM - Intelligent Stateful Progress Bar with Emoji Feedback
+tqdm++ - Enhanced Progress Bar with Intelligent Emoji Feedback
 
-A smart progress bar library with:
+An enhanced progress bar library with:
 - Intelligent emoji-based performance feedback
 - Stateful metric history tracking
 - Trend detection (improvement/plateau/decline)
@@ -18,8 +18,7 @@ Version: 2.0.0
 from .smart_bar import SmartBar
 from .emoji_selectors import (
     accuracy_based_selector, 
-    loss_based_selector, 
-    speed_based_selector,
+    loss_based_selector,
     EmojiSelector
 )
 from .metrics import MetricTracker
@@ -41,8 +40,7 @@ __all__ = [
     
     # Predefined emoji selectors
     "accuracy_based_selector",
-    "loss_based_selector", 
-    "speed_based_selector",
+    "loss_based_selector",
     
     # Advanced components (for custom usage)
     "EmojiSelector",

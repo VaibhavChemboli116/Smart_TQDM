@@ -1,7 +1,7 @@
 import time
 import random
 import sys
-from smart_tqdm.smart_bar import SmartBar, accuracy_based_selector, loss_based_selector
+from tqdmpp.smart_bar import SmartBar, accuracy_based_selector, loss_based_selector
 
 def main():
     print("🚀 SmartBar Demo (Intelligent Stateful Emoji Selection)")
