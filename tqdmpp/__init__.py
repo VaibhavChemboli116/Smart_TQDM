@@ -31,7 +31,7 @@ from .config import (
 )
 
 __version__ = "2.0.0"
-__author__ = "IEEE Research Project"
+__author__ = "Vaibhav Chemboli, Keerthi Sana"
 
 # Maintain backward compatibility with existing API
 __all__ = [

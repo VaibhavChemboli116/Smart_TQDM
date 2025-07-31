@@ -9,7 +9,8 @@ description = "Enhanced progress bar with intelligent emoji feedback for neural 
 readme = "README.md"
 license = {text = "MIT"}
 authors = [
-    {name = "IEEE Research Project", email = "research@ieee.org"}
+    {name = "Vaibhav Chemboli", email = "vaibhav.chemboli@gmail.com"},
+    {name = "Keerthi Sana", email = "keerthisana.sk@gmail.com"}
 ]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -53,10 +54,10 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/ieee-research/tqdmpp"
-"Bug Reports" = "https://github.com/ieee-research/tqdmpp/issues"
-"Source" = "https://github.com/ieee-research/tqdmpp"
-"Documentation" = "https://github.com/ieee-research/tqdmpp/blob/main/README.md"
+Homepage = "https://github.com/VaibhavChemboli116/Smart_TQDM"
+"Bug Reports" = "https://github.com/VaibhavChemboli116/Smart_TQDM/issues"
+"Source" = "https://github.com/VaibhavChemboli116/Smart_TQDM"
+"Documentation" = "https://github.com/VaibhavChemboli116/Smart_TQDM/blob/main/README.md"
 
 [tool.setuptools]
 packages = ["tqdmpp"]

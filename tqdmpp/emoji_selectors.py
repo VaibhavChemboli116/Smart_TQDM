@@ -1,7 +1,7 @@
 """
 Emoji selection logic for SmartBar progress indicators
 """
-from typing import Dict, Any, Callable, Optional
+from typing import Dict, Any, Optional
 from collections import deque
 
 from .config import ProgressBarConfig, EmojiConfig, DefaultConfig

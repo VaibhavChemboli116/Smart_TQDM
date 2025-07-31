@@ -4,7 +4,7 @@ Terminal display and rendering functionality for SmartBar
 import sys
 import shutil
 import time
-from typing import Dict, Any, Optional
+from typing import Dict, Any
 
 from .config import ProgressBarConfig, ColorConfig
 
@@ -79,7 +79,7 @@ class TerminalRenderer:
         available_width = term_width - total_needed
         if available_width < ProgressBarConfig.MIN_BAR_WIDTH:
             if not self.warned_narrow:
-                print(f"\n⚠️  Terminal too narrow ({term_width} chars). Bar will be minimal.")
+                print(f"\nTerminal too narrow ({term_width} chars). Bar will be minimal.")
                 self.warned_narrow = True
             available_width = ProgressBarConfig.MIN_BAR_WIDTH
         

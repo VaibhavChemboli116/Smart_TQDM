@@ -8,8 +8,8 @@ from typing import Dict, Any, Optional, Callable
 
 from .metrics import MetricTracker
 from .display import TerminalRenderer
-from .emoji_selectors import EmojiSelector, accuracy_based_selector, loss_based_selector
-from .config import ProgressBarConfig, EmojiConfig
+from .emoji_selectors import EmojiSelector
+from .config import ProgressBarConfig
 
 
 class SmartBar:
@@ -68,10 +68,8 @@ class SmartBar:
         # Update metric tracker with current progress
         self.metric_tracker.update_metrics(self.n, self.start_time, **kwargs)
 
-    def _select_emoji(self) -> str:
+    def _select_emoji(self, trend_data: Dict[str, Any]) -> str:
         """Select emoji using the configured selector"""
-        trend_data = self.metric_tracker.get_trend_data()
-        
         return self.emoji_selector(
             self.n, self.total, self.metrics, self.start_time,
             trend_data['metric_history'], trend_data['best_accuracy'],
@@ -91,7 +89,7 @@ class SmartBar:
 
         # Update emoji based on custom selector if configured
         if self.show_emoji and self.emoji_selector:
-            self.emoji = self._select_emoji()
+            self.emoji = self._select_emoji(trend_data)
         
         # Render and print the progress bar
         bar_str = self.renderer.render_progress_bar(

@@ -16,12 +16,12 @@ def read_readme():
 setup(
     name="tqdmpp",
     version="2.0.0",
-    author="IEEE Research Project",
-    author_email="research@ieee.org",
+    author="Vaibhav Chemboli, Keerthi Sana",
+    author_email="vaibhav.chemboli@gmail.com, keerthisana.sk@gmail.com",
     description="Enhanced progress bar with intelligent emoji feedback for neural network training",
     long_description=read_readme(),
     long_description_content_type="text/markdown",
-    url="https://github.com/ieee-research/tqdmpp",
+    url="https://github.com/VaibhavChemboli116/Smart_TQDM",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 4 - Beta",
@@ -70,9 +70,9 @@ setup(
         "research"
     ],
     project_urls={
-        "Bug Reports": "https://github.com/ieee-research/tqdmpp/issues",
-        "Source": "https://github.com/ieee-research/tqdmpp",
-        "Documentation": "https://github.com/ieee-research/tqdmpp/blob/main/README.md",
+        "Bug Reports": "https://github.com/VaibhavChemboli116/Smart_TQDM/issues",
+        "Source": "https://github.com/VaibhavChemboli116/Smart_TQDM",
+        "Documentation": "https://github.com/VaibhavChemboli116/Smart_TQDM/blob/main/README.md",
     },
     include_package_data=True,
     zip_safe=False,

@@ -3,18 +3,9 @@ Metric tracking and trend analysis for SmartBar
 """
 import time
 from collections import deque
-from typing import Dict, Any, Optional
+from typing import Dict, Any
 
 from .config import ProgressBarConfig
-
-try:
-    from typing import Deque
-except ImportError:
-    # For Python < 3.9, use typing_extensions or fallback
-    try:
-        from typing_extensions import Deque
-    except ImportError:
-        from typing import Any as Deque
 
 
 class MetricTracker:
@@ -22,7 +13,7 @@ class MetricTracker:
     
     def __init__(self, history_size: int = ProgressBarConfig.DEFAULT_HISTORY_SIZE):
         self.history_size = history_size
-        self.metric_history: Deque[Dict[str, Any]] = deque(maxlen=history_size)
+        self.metric_history: deque[Dict[str, Any]] = deque(maxlen=history_size)
         self.best_accuracy = 0.0
         self.best_loss = float('inf')
         self.accuracy_trend = 0  # -1: decreasing, 0: stable, 1: increasing
